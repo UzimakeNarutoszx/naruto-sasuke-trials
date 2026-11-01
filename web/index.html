@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; script-src 'self'; connect-src 'none'; style-src 'self' 'unsafe-inline'">
+<link rel="icon" href="data:,">
+<title>鸣佐的试炼 · 离线版</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}html,body{margin:0;height:100%;background:#090d18;font-family:"Microsoft YaHei",sans-serif;overflow:hidden}body{display:grid;place-items:center}#wrap{position:relative;width:min(100vw,calc(100vh * 1.5),1280px);aspect-ratio:3/2;background:#111;box-shadow:0 0 40px #000}canvas{display:block;width:100%;height:100%;image-rendering:pixelated}.panel{position:absolute;inset:0;display:grid;place-items:center;background:rgba(4,8,18,.72);backdrop-filter:blur(2px)}.card{width:min(92%,760px);padding:24px 42px;text-align:center}.card h1{margin:0 0 12px;font-size:0;color:transparent;background:url('项目资源/button&bg/title.png') center/contain no-repeat;height:96px}.card h2{font-size:42px;color:#fff;text-shadow:3px 3px #000}.card p{margin:8px 0;color:#fff;text-shadow:2px 2px #000}.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}button{font:inherit;color:transparent;background:url('项目资源/button&bg/start_button.png') center/contain no-repeat;border:0;width:308px;height:58px;padding:0;cursor:pointer;filter:drop-shadow(2px 3px 2px #000)}button:hover{filter:brightness(1.18) drop-shadow(2px 3px 2px #000)}button.secondary{background:#433b4d;color:#fff;width:auto;height:auto;padding:10px 20px;border:1px solid #bca9c5}.hidden{display:none!important}.save-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}.save-grid button{background:#233c65;color:#fff;width:auto;height:auto;padding:8px 2px;font-size:13px;filter:none}#menu.panel,#saves.panel,#result.panel{background:url('项目资源/button&bg/start_bg1.jpg') center/cover no-repeat}#result .card h1{margin:0 0 12px;font-size:68px;color:#fff;text-shadow:5px 5px #000;background:none;height:auto}.key-choice{display:flex;justify-content:center;gap:16px;margin-top:12px}.key-btn{width:180px;height:44px;background:url('项目资源/button&bg/brick.png') center/100% 100% no-repeat;color:#fff;font-size:18px;text-shadow:2px 2px #000;filter:drop-shadow(2px 2px 2px #000)}
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" width="1080" height="720"></canvas>
+<div id="menu" class="panel"><div class="card"><h1>鸣佐的试炼</h1><p id="saveStatus">选择不使用存档</p><div class="btns"><button id="start">开始游戏</button><button id="load" hidden>读取存档</button></div><div class="key-choice"><button id="keyDefault" class="key-btn">默认键位</button><button id="keyNew" class="key-btn">新键位</button></div><p style="margin-top:22px;font-size:13px">数字键 1-9 选择存档，0 不使用存档，F 选择新键位</p></div></div>
+<div id="saves" class="panel hidden"><div class="card"><h2>选择存档</h2><div id="saveGrid" class="save-grid"></div><div class="btns"><button id="newGame" class="secondary">不使用存档</button><button id="back" class="secondary">返回</button></div></div></div>
+<div id="result" class="panel hidden"><div class="card"><h1 id="resultTitle"></h1><p id="resultText"></p><div class="btns"><button id="resultAction">继续</button><button id="resultMenu" class="secondary">主菜单</button></div></div></div>
+</div>
+<script src="maps.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
